@@ -1,0 +1,23 @@
+{
+  "name": "heyboss_backend",
+  "version": "1.0.0",
+  "description": "Test backend of heyboss service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stepan0202/heybossBackTest.git"
+  },
+  "author": "Derevianko Stepan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stepan0202/heybossBackTest/issues"
+  },
+  "homepage": "https://github.com/Stepan0202/heybossBackTest#readme",
+  "dependencies": {
+    "create-vite": "^5.0.0",
+    "vite": "^5.0.2"
+  }
+}
