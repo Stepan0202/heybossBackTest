@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "singularName": "type",
+    "pluralName": "types",
+    "displayName": "type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "typeName": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "types"
+    },
+    "goods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::good.good",
+      "mappedBy": "type"
+    }
+  }
+}

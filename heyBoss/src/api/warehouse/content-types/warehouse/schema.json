@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "warehouses",
+  "info": {
+    "singularName": "warehouse",
+    "pluralName": "warehouses",
+    "displayName": "warehouse",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "warehouseCountry": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "warehouseCity": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "warehouseStreet": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 180,
+      "private": true
+    },
+    "warehouseBuild": {
+      "type": "string"
+    },
+    "warehouseSection": {
+      "type": "string",
+      "required": false,
+      "minLength": 1,
+      "maxLength": 10
+    },
+    "sellerID": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "unique": false
+    },
+    "goods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::good.good",
+      "mappedBy": "warehouses"
+    }
+  }
+}

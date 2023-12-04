@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "goods",
+  "info": {
+    "singularName": "good",
+    "pluralName": "goods",
+    "displayName": "good",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "goodName": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "carbonSave": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "vin": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 20
+    },
+    "carBrand": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "carModel": {
+      "type": "string",
+      "required": false,
+      "maxLength": 20
+    },
+    "carYear": {
+      "type": "integer",
+      "max": 2500,
+      "min": 1900
+    },
+    "carBody": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "carEngineType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "carEngineCapacity": {
+      "type": "decimal",
+      "min": 0.01,
+      "max": 100,
+      "private": true
+    },
+    "availableCount": {
+      "type": "integer",
+      "min": 0,
+      "required": true,
+      "default": 0
+    },
+    "soldCount": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "category_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "goods"
+    },
+    "warehouses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::warehouse.warehouse",
+      "inversedBy": "goods"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order.order",
+      "inversedBy": "goods"
+    },
+    "goodPhoto": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::type.type",
+      "inversedBy": "goods"
+    },
+    "specification": {
+      "type": "json"
+    }
+  }
+}

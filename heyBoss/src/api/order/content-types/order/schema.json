@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderDate": {
+      "type": "datetime",
+      "required": true,
+      "unique": false
+    },
+    "selfExport": {
+      "type": "boolean",
+      "default": false
+    },
+    "deliveryService": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "deliverToCity": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "deliverToStreet": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150,
+      "private": true
+    },
+    "deliverToSection": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10
+    },
+    "totalAmount": {
+      "type": "decimal"
+    },
+    "totalCarbonSave": {
+      "type": "integer"
+    },
+    "customerID": {
+      "type": "integer",
+      "min": 0,
+      "required": true
+    },
+    "sellerID": {
+      "type": "integer"
+    },
+    "customer_acc": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer-acc.customer-acc",
+      "inversedBy": "order"
+    },
+    "goods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::good.good",
+      "mappedBy": "orders"
+    },
+    "seller_acc": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::seller-acc.seller-acc",
+      "inversedBy": "orders"
+    }
+  }
+}

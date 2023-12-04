@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seller_accs",
+  "info": {
+    "singularName": "seller-acc",
+    "pluralName": "seller-accs",
+    "displayName": "sellerAcc",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isBusiness": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "businessName": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 150,
+      "minLength": 1,
+      "required": false
+    },
+    "totalIncome": {
+      "type": "decimal",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "totalDeals": {
+      "type": "integer"
+    },
+    "sellerRating": {
+      "type": "float"
+    },
+    "totalCO2Save": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "seller_acc"
+    },
+    "goods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::good.good"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "seller_acc"
+    }
+  }
+}

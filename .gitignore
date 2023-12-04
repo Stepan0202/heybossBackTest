@@ -1,0 +1,25 @@
+# Logs
+heyBossAdmin/logs
+heyBossAdmin/*.log
+heyBossAdmin/npm-debug.log*
+heyBossAdmin/yarn-debug.log*
+heyBossAdmin/yarn-error.log*
+heyBossAdmin/pnpm-debug.log*
+heyBossAdmin/lerna-debug.log*
+
+node_modules
+heyBossAdmin/node_modules
+heyBossAdmin/dist
+heyBossAdmin/dist-ssr
+heyBossAdmin/*.local
+
+# Editor directories and files
+heyBossAdmin/.vscode/*
+heyBossAdmin/!.vscode/extensions.json
+heyBossAdmin/.idea
+heyBossAdmin/.DS_Store
+heyBossAdmin/*.suo
+heyBossAdmin/*.ntvs*
+heyBossAdmin/*.njsproj
+heyBossAdmin/*.sln
+heyBossAdmin/*.sw?
