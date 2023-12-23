@@ -697,6 +697,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -704,7 +705,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     categoryName: Attribute.String &
       Attribute.Required &
-      Attribute.Private &
       Attribute.Unique &
       Attribute.SetMinMaxLength<{
         minLength: 1;
@@ -714,11 +714,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.SetMinMax<{
         min: 0;
       }>;
-    goods: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::good.good'
-    >;
     types: Attribute.Relation<
       'api::category.category',
       'oneToMany',
@@ -776,7 +771,7 @@ export interface ApiCustomerAccCustomerAcc extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    order: Attribute.Relation<
+    orderID: Attribute.Relation<
       'api::customer-acc.customer-acc',
       'oneToMany',
       'api::order.order'
@@ -874,11 +869,6 @@ export interface ApiGoodGood extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<0>;
     isActive: Attribute.Boolean & Attribute.DefaultTo<true>;
-    category_id: Attribute.Relation<
-      'api::good.good',
-      'manyToOne',
-      'api::category.category'
-    >;
     warehouses: Attribute.Relation<
       'api::good.good',
       'manyToMany',
@@ -945,11 +935,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
         min: 0;
       }>;
     sellerID: Attribute.Integer;
-    customer_acc: Attribute.Relation<
-      'api::order.order',
-      'manyToOne',
-      'api::customer-acc.customer-acc'
-    >;
     goods: Attribute.Relation<
       'api::order.order',
       'manyToMany',
@@ -959,6 +944,12 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'api::order.order',
       'manyToOne',
       'api::seller-acc.seller-acc'
+    >;
+    goodsJSON: Attribute.JSON & Attribute.Required;
+    customer_acc: Attribute.Relation<
+      'api::order.order',
+      'manyToOne',
+      'api::customer-acc.customer-acc'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -56,12 +56,6 @@
     "sellerID": {
       "type": "integer"
     },
-    "customer_acc": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::customer-acc.customer-acc",
-      "inversedBy": "order"
-    },
     "goods": {
       "type": "relation",
       "relation": "manyToMany",
@@ -73,6 +67,16 @@
       "relation": "manyToOne",
       "target": "api::seller-acc.seller-acc",
       "inversedBy": "orders"
+    },
+    "goodsJSON": {
+      "type": "json",
+      "required": true
+    },
+    "customer_acc": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer-acc.customer-acc",
+      "inversedBy": "orderID"
     }
   }
 }

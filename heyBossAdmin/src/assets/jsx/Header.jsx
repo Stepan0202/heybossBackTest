@@ -2,8 +2,8 @@
 import { NavLink } from 'react-router-dom';
 /*Images */
 import LOGO from '../img/LOGO.png';
-import Bell from '../img/Bell.png';
-import Avatars from '../img/Avatars.jpg';
+import Bell from '../img/icons/bell.png';
+import Avatars from '../img/icons/avatars.jpg';
 /*Bootstrap */
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

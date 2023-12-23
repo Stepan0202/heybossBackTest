@@ -4,7 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "category"
+    "displayName": "category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,19 +16,12 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 50,
-      "private": true,
       "required": true,
       "unique": true
     },
     "totalGood": {
       "type": "integer",
       "min": 0
-    },
-    "goods": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::good.good",
-      "mappedBy": "category_id"
     },
     "types": {
       "type": "relation",
